@@ -99,8 +99,8 @@ func decryptFile(filename string, passphrase string) []byte {
 	return decrypt(data, passphrase)
 }
 
-func getOpcode(instruction string) int {
-	opcodes := map[string] int {
+func getCommand(instruction string) int {
+	commands := map[string] int {
 		"wakeup": 0,
 		"speak": 1,
 		"sleep": 2,
@@ -109,12 +109,12 @@ func getOpcode(instruction string) int {
 		"destruct": 5,
 	}
 
-	opcode, ok := opcodes[instruction]
+	command, ok := commands[instruction]
 
 	if ok == false {
 		return -1
 	} else {
-		return opcode
+		return command
 	}
 }
 
@@ -192,9 +192,9 @@ func main() {
 	}
 
 	for _, element := range i {
-		//fmt.Println(getOpcode(element))
+		//fmt.Println(getCommand(element))
 		//fmt.Println(element)
-		switch getOpcode(element) {
+		switch getCommand(element) {
 		case 0:
 			fmt.Println("the turtle is waking up...")
 			time.Sleep(2 * time.Second)
