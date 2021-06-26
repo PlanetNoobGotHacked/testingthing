@@ -179,6 +179,8 @@ func main() {
 			if err := os.WriteFile(os.Args[1], []byte(h.Sum(nil)), 0666); err != nil {
 				log.Fatal(err)
 			}
+
+			fmt.Println("💥 destroyed")
 		default:
 
 		}
